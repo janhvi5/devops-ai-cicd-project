@@ -59,3 +59,11 @@ terraform apply -auto-approve
 
 trivy image devops-app
 
+## 📸 Pipeline & Deployment Screenshots
+
+### Jenkins Pipeline
+![Pipeline](jenkins-pipeline-scsh.png)
+
+### Running App on AWS EC2
+![EC2 App](ec2-app-scsh.png)
+
