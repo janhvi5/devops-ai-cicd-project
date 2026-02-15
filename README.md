@@ -1,3 +1,8 @@
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
+![Docker](https://img.shields.io/badge/Docker-Container-blue)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-purple)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-red)
+
 # AI-Powered DevOps CI/CD Pipeline Project
 
 ## 📌 Project Objective
@@ -7,32 +12,27 @@ Build a real-world automated CI/CD pipeline to deploy a containerized applicatio
 
 ## 🛠 Tech Stack
 - AWS (EC2, VPC, IAM, S3, CloudWatch)
-- Jenkins (CI/CD automation)
-- Docker (containerization)
-- Terraform (Infrastructure as Code)
-- GitHub (source control)
-- Trivy (AI-assisted security scanning)
+- Jenkins
+- Docker
+- Terraform
+- GitHub
+- Trivy
 - Linux (Ubuntu)
 
 ---
 
 ## 🏗 Architecture Overview
-
-Developer → GitHub → Jenkins Pipeline → Docker Build → Security Scan → AWS Deploy → Monitoring
-
-(Optional: upload diagram image later)
+Developer → GitHub → Jenkins → Docker → Security Scan → AWS Deploy → Monitoring
 
 ---
 
 ## 🚀 Pipeline Flow
-
-1. Code pushed to GitHub  
-2. Jenkins triggers pipeline  
-3. Docker image build  
-4. Trivy vulnerability scan  
-5. Terraform provisions AWS infra  
-6. App deployed to EC2  
-7. Monitoring enabled with CloudWatch  
+1. Code push triggers Jenkins  
+2. Docker build  
+3. Trivy scan  
+4. Terraform infra  
+5. EC2 deployment  
+6. Monitoring  
 
 ---
 
@@ -42,3 +42,20 @@ Developer → GitHub → Jenkins Pipeline → Docker Build → Security Scan →
 ```bash
 git clone https://github.com/janhvi5/devops-ai-cicd-project.git
 cd devops-ai-cicd-project
+
+sudo apt update
+sudo apt install -y docker.io terraform git
+
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+
+aws configure
+
+cd terraform
+terraform init
+terraform apply -auto-approve
+
+
+trivy image devops-app
+
